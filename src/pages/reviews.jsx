@@ -60,7 +60,7 @@ function Reviews({ user, getGameID, getID, userId }) {
 	}
 
 	function deleteReview(reviewID) {
-		if (window.confirm("Delete Review?")) {
+		if (window.confirm("Delete review?")) {
 			axios.delete("http://localhost:3001/deleteReview", { params: { reviewID: reviewID } }).then((data) => {
 				console.log("status", data.status);
 				toast.success("review deleted", { style: { background: "#212529", color: "white", border: "1px solid gray" } });
