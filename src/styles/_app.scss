@@ -1,0 +1,195 @@
+body {
+	padding: 0 !important;
+	margin: 0 !important;
+	background-color: rgb(33, 37, 41) !important;
+}
+
+.background {
+	height: 400px;
+	width: 100%;
+}
+
+.gradient {
+	height: 100%;
+	width: 100%;
+	background-image: linear-gradient(to top, rgb(33, 37, 41, 1), transparent);
+}
+
+.game-img {
+	width: 150px;
+	height: 220px;
+	z-index: 100;
+}
+
+.login-form,
+.register-form {
+	opacity: 1;
+	transition: 500ms ease-in-out !important;
+	z-index: 110;
+}
+
+.login-form-invisible,
+.register-form-invisible {
+	opacity: 0;
+	transition: 500ms ease-in-out !important;
+	top: -300px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 100;
+}
+
+.navbar {
+	z-index: 100;
+}
+
+.headlines {
+	background-color: rgba(6, 107, 143, 0.7) !important;
+}
+
+.review-title {
+	padding-left: 72px !important;
+}
+
+.home-background {
+	height: 550px !important;
+}
+
+.home-gradient {
+	height: 100%;
+	width: 100%;
+	background-image: linear-gradient(to top, rgb(33, 37, 41, 1), transparent);
+}
+
+.rating {
+	cursor: pointer;
+	height: 20px;
+	width: 20px;
+}
+
+.dropdown {
+	height: 30px;
+}
+
+.select {
+	cursor: pointer;
+}
+
+.my_reviews {
+	height: 100px;
+	width: 100px;
+}
+
+.user,
+.sign-out {
+	cursor: pointer;
+}
+
+.user-review {
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	display: -webkit-box;
+}
+
+.hover-name {
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.add-to-list {
+	visibility: hidden;
+}
+
+.gamecol:hover .add-to-list {
+	visibility: visible;
+	cursor: pointer;
+	border: 2px solid rgb(146, 146, 146);
+}
+
+.gamecol:hover .myreview-game {
+	border: 2px solid red;
+	opacity: 0.4;
+}
+
+.gamecol:hover .hover-name,
+.hover-name:hover {
+	visibility: visible;
+}
+
+.review-icons {
+	transition: ease-in-out 250ms;
+	visibility: visible;
+	opacity: 1;
+}
+
+.review:hover {
+	border: 2px solid rgb(146, 146, 146);
+}
+
+.review:hover .review-icons {
+	transition: ease-in-out 250ms;
+	visibility: visible;
+	opacity: 1;
+}
+
+.edit-icon,
+.delete-icon {
+	cursor: pointer;
+}
+
+.list-img1 {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 3;
+	background-image: radial-gradient(rgb(23, 23, 23) 43%, rgb(0, 0, 116) 121%);
+}
+
+.list-img2 {
+	top: 0;
+	left: 50%;
+	z-index: 2;
+	background-image: radial-gradient(rgb(23, 23, 23) 43%, rgb(0, 0, 116) 121%);
+}
+
+.list-img3 {
+	top: 0;
+	left: 100%;
+	z-index: 1;
+	background-image: radial-gradient(rgb(23, 23, 23) 43%, rgb(0, 0, 116) 121%);
+}
+
+.list-img:hover {
+	border: 2px solid red !important;
+}
+
+.list-game {
+	padding-top: 50%;
+}
+
+.form {
+	z-index: 5;
+}
+
+.delete-list-icon {
+	visibility: hidden;
+	top: 0;
+	left: 75%;
+	cursor: pointer;
+}
+
+.list-col:hover .delete-list-icon {
+	visibility: visible;
+}
+
+.delete-listGame-icon {
+	visibility: hidden;
+	top: 4%;
+	right: 7%;
+	cursor: pointer;
+}
+
+.gamecol:hover .delete-listGame-icon {
+	visibility: visible;
+}
