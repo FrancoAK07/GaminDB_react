@@ -126,6 +126,10 @@ body {
   border: 2px solid rgb(146, 146, 146);
 }
 
+.review {
+  border: 2px solid transparent;
+}
+
 .review:hover .review-icons {
   transition: ease-in-out 250ms;
   visibility: visible;

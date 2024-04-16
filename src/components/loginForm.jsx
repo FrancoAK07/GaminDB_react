@@ -35,7 +35,9 @@ function LoginForm({ active, setActive, onClickOutside, setUserLogged, setRegist
 				setActive(false);
 				sessionStorage.setItem("logged", true);
 				sessionStorage.setItem("user", data.data[i].User_Name);
-				toast.success("logged in successfully!", { style: { background: "#212529", color: "white", border: "1px solid gray" } });
+				toast.success(`Logged in successfully!\n Hi ${sessionStorage.getItem("user")}!`, {
+					style: { background: "#212529", color: "white", border: "1px solid gray" },
+				});
 				break;
 			} else if (i >= data.data.length - 1) {
 				toast.error("wrong email or password", { style: { background: "#212529", color: "white", border: "1px solid gray" } });
