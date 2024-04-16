@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
-function Reviews({ user, getGameID, getID, userId }) {
+function Reviews({ getGameID, getID }) {
 	const [reviews, setReviews] = useState([]);
 	const [isExpanded, setIsExpanded] = useState([]);
 	const reviewRef = useRef([]);

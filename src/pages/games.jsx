@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
-function Games({ user, getID, getGameImg, getBackground, getGameID }) {
+function Games({ getID, getGameImg, getBackground, getGameID }) {
 	const [games, setGames] = useState([]);
 	const [reviews, setReviews] = useState([]);
 	const [userLists, setUserLists] = useState([]);

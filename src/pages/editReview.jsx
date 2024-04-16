@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-function EditReview({ user, reviewID, gameID }) {
+function EditReview({ reviewID, gameID }) {
 	const [file, setFile] = useState(null);
 	const [gameFile, setGameFile] = useState(null);
 	const [dbRating, setDbRating] = useState(null);
@@ -34,8 +34,6 @@ function EditReview({ user, reviewID, gameID }) {
 	function updateReview() {
 		if (!reviewRef.current.value || !dbRating || !platform) {
 			alert("please complete the review");
-		} else if (!user) {
-			alert("user not logged in");
 		} else {
 			axios
 				.put("http://localhost:3001/updatereview", {

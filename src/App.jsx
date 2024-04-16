@@ -85,18 +85,12 @@ function App() {
 				/>
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route
-						path="/createreview"
-						element={<CreateReview user={user} gameImg1={gameImg1} background1={background1} gameID={gameID} userId={userId} />}
-					/>
-					<Route path="/reviews" element={<Reviews user={user} getID={getID} getGameID={getGameID} />} />
-					<Route path="/lists" element={<Lists user={user} getID={getID} getGameID={getGameID} userId={userId} />} />
-					<Route path="/list" element={<List user={user} getID={getID} getGameID={getGameID} userId={userId} />} />
-					<Route
-						path="/games"
-						element={<Games user={user} getID={getID} getGameImg={getGameImg} getBackground={getBackground} getGameID={getGameID} userId={userId} />}
-					/>
-					<Route path="/editreview" element={<EditReview user={user} reviewID={reviewID} gameID={gameID} />} />
+					<Route path="/createreview" element={<CreateReview gameImg1={gameImg1} background1={background1} gameID={gameID} />} />
+					<Route path="/reviews" element={<Reviews getID={getID} getGameID={getGameID} />} />
+					<Route path="/lists" element={<Lists />} />
+					<Route path="/list" element={<List />} />
+					<Route path="/games" element={<Games getID={getID} getGameImg={getGameImg} getBackground={getBackground} getGameID={getGameID} />} />
+					<Route path="/editreview" element={<EditReview reviewID={reviewID} gameID={gameID} />} />
 				</Routes>
 			</Router>
 		</div>

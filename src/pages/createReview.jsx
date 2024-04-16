@@ -5,11 +5,13 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-function CreateReview({ user, gameImg1, background1, gameID, userId }) {
+function CreateReview({ gameImg1, background1, gameID }) {
 	const [rating, setRating] = useState(null);
 	const [platform, setPlatform] = useState("");
 	const navigate = useNavigate();
 	const reviewTextRef = useRef("");
+	const user = useRef(sessionStorage.getItem("user"));
+	const userId = useRef(sessionStorage.getItem("userId"));
 
 	function getRating(rating) {
 		setRating(rating);
@@ -28,17 +30,15 @@ function CreateReview({ user, gameImg1, background1, gameID, userId }) {
 					border: "1px solid gray",
 				},
 			});
-		} else if (!user) {
-			alert("user not logged in");
 		} else {
 			axios
 				.post("http://localhost:3001/savereview", {
 					review: reviewTextRef.current.value,
 					rating: parseInt(rating),
 					platform: platform,
-					user: user,
+					user: user.current,
 					gameid: gameID,
-					userId: userId,
+					userId: userId.current,
 				})
 				.then((data) => {
 					console.log("status", data.status);
