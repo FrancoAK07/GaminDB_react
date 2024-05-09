@@ -4,7 +4,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 function RegisterForm({ registerActive, setRegisterActive, onClickOutside, setActive }) {
-	const visible = "register-form form-control w-25 bg-dark position-absolute top-50 start-50 translate-middle";
+	const visible =
+		"col-9 col-sm-7 col-md-5 col-lg-3 p-2 login-form bg-dark position-absolute top-50 start-50 translate-middle rounded border border-light";
 	const invisible = "register-form-invisible form-control w-25 bg-dark position-absolute";
 	const ref = useRef(null);
 	const registerNameInput = useRef(null);
@@ -16,7 +17,7 @@ function RegisterForm({ registerActive, setRegisterActive, onClickOutside, setAc
 
 	useEffect(() => {
 		const handleClickOutside = (e) => {
-			if (ref.current && !ref.current.contains(e.target)) {
+			if (registerActive && !ref.current.contains(e.target)) {
 				onClickOutside();
 				registerNameInput.current.value = "";
 				registerEmailInput.current.value = "";
@@ -27,7 +28,7 @@ function RegisterForm({ registerActive, setRegisterActive, onClickOutside, setAc
 		return () => {
 			document.removeEventListener("click", handleClickOutside, true);
 		};
-	}, [onClickOutside]);
+	}, [registerActive, onClickOutside]);
 
 	const registerUser = () => {
 		if (!userName || !userEmail || !userPassword) {
@@ -56,14 +57,14 @@ function RegisterForm({ registerActive, setRegisterActive, onClickOutside, setAc
 
 	return (
 		<form className={registerActive ? visible : invisible} ref={ref}>
-			<div className="mb-2">
-				<label className="form-label text-white" htmlFor="name-input">
+			<div className="row w-100 m-auto mb-2">
+				<label className="text-white ps-1" htmlFor="register-name-input">
 					User Name
 				</label>
 				<input
 					className="form-control"
 					type="text"
-					id="name-input"
+					id="register-name-input"
 					ref={registerNameInput}
 					placeholder="Name"
 					onChange={(e) => {
@@ -72,14 +73,14 @@ function RegisterForm({ registerActive, setRegisterActive, onClickOutside, setAc
 				/>
 			</div>
 
-			<div className="mb-2">
-				<label className="form-label text-white" htmlFor="email-input">
+			<div className="row w-100 m-auto mb-2">
+				<label className="text-white ps-1" htmlFor="register-email-input">
 					Email Address
 				</label>
 				<input
 					className="form-control"
 					type="text"
-					id="email-input"
+					id="register-email-input"
 					ref={registerEmailInput}
 					placeholder="Email"
 					onChange={(e) => {
@@ -88,14 +89,14 @@ function RegisterForm({ registerActive, setRegisterActive, onClickOutside, setAc
 				/>
 			</div>
 
-			<div className="mb-2">
-				<label className="form-label text-white" htmlFor="password-input">
+			<div className="row w-100 m-auto mb-2">
+				<label className="text-white ps-1" htmlFor="register-password-input">
 					Password
 				</label>
 				<input
 					className="form-control"
 					type="text"
-					id="password-input"
+					id="register-password-input"
 					placeholder="Enter Password"
 					ref={registerPasswordInput}
 					onChange={(e) => {
@@ -104,13 +105,13 @@ function RegisterForm({ registerActive, setRegisterActive, onClickOutside, setAc
 				/>
 			</div>
 
-			<div className="d-flex">
-				<button className="btn btn-secondary mx-auto mb-2 bg-primary" type="button" onClick={registerUser}>
+			<div className="row w-100 m-auto justify-content-center">
+				<button className="btn btn-secondary w-50 bg-primary" type="button" onClick={registerUser}>
 					Register
 				</button>
 			</div>
 
-			<p className="text-white text-center">
+			<p className="text-white text-center m-0 p-1">
 				Already have an account? Log in here{" "}
 				<Link
 					className="text-decoration-none"

@@ -4,7 +4,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 function LoginForm({ active, setActive, onClickOutside, setUserLogged, setRegisterActive, userName, getUserId }) {
-	const visible = "login-form form-control w-25 bg-dark position-absolute top-50 start-50 translate-middle";
+	const visible =
+		"col-9 col-sm-7 col-md-5 col-lg-3 p-2 login-form bg-dark position-absolute top-50 start-50 translate-middle rounded border border-light";
 	const invisible = "login-form-invisible form-control w-25 bg-dark position-absolute";
 	const formRef = useRef(null);
 	const emailRef = useRef(null);
@@ -12,7 +13,7 @@ function LoginForm({ active, setActive, onClickOutside, setUserLogged, setRegist
 
 	useEffect(() => {
 		const handleClickOutside = (e) => {
-			if (formRef.current && !formRef.current.contains(e.target)) {
+			if (active && !formRef.current.contains(e.target)) {
 				onClickOutside();
 				emailRef.current.value = "";
 				passwordRef.current.value = "";
@@ -22,7 +23,7 @@ function LoginForm({ active, setActive, onClickOutside, setUserLogged, setRegist
 		return () => {
 			document.removeEventListener("click", handleClickOutside, true);
 		};
-	}, [onClickOutside]);
+	}, [onClickOutside, active]);
 
 	const logIn = async () => {
 		const data = await axios.get("http://localhost:3001/get");
@@ -52,35 +53,37 @@ function LoginForm({ active, setActive, onClickOutside, setUserLogged, setRegist
 	}
 
 	return (
-		<form className={active ? visible : invisible} ref={formRef}>
-			<div className="mb-2">
-				<label className="form-label text-white " htmlFor="email-input">
-					Email Address
-				</label>
-				<input className="form-control" type="text" id="email-input" placeholder="Email" ref={emailRef} />
-			</div>
-			<div className="mb-2">
-				<label className="form-label text-white" htmlFor="password-input">
-					Password
-				</label>
-				<input className="form-control" type="text" id="password-input" placeholder="Enter Password" ref={passwordRef} />
-			</div>
-			<div className="d-flex">
-				<button type="button" className="btn btn-secondary mx-auto mb-2 bg-primary" onClick={logIn}>
-					Log In
-				</button>
-			</div>
-			<p className="text-white text-center">
-				Don't have an account? Register here
-				<Link
-					className="text-decoration-none"
-					onClick={(e) => {
-						registerLink(e);
-					}}>
-					Register
-				</Link>
-			</p>
-		</form>
+		<div className="row">
+			<form className={active ? visible : invisible} ref={formRef}>
+				<div className="row w-100 m-auto mb-2">
+					<label className="text-white ps-1" htmlFor="login-email-input">
+						Email Address
+					</label>
+					<input className="form-control" type="text" id="login-email-input" placeholder="Email" ref={emailRef} />
+				</div>
+				<div className="row w-100 m-auto mb-2">
+					<label className="text-white ps-1" htmlFor="login-password-input">
+						Password
+					</label>
+					<input className="form-control" type="password" id="login-password-input" placeholder="Enter Password" ref={passwordRef} />
+				</div>
+				<div className="row w-100 m-auto justify-content-center">
+					<button type="button" className="btn btn-secondary w-50 bg-primary" onClick={logIn}>
+						Log In
+					</button>
+				</div>
+				<p className="text-white text-center m-0 p-1">
+					Don't have an account? Register here
+					<Link
+						className="text-decoration-none ms-1"
+						onClick={(e) => {
+							registerLink(e);
+						}}>
+						Register
+					</Link>
+				</p>
+			</form>
+		</div>
 	);
 }
 
