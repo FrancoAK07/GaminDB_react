@@ -135,7 +135,7 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 	});
 
 	return (
-		<div className="container mb-3">
+		<div className="container">
 			<div className="row text-center">
 				<h1 className="text-white">Games</h1>
 			</div>

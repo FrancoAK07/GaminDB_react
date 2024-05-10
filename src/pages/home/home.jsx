@@ -13,11 +13,11 @@ function Home() {
 	}, []);
 
 	return (
-		<div className="home">
-			<div className="home-background position-relative">
-				<div className="home-gradient position-absolute"></div>
-				<img className="h-100 w-100 " src={require("../../assets/images/sc5r7v.png")} alt="" />
-				<div className="position-absolute top-0 w-100 h-100">
+		<div className="home h-100">
+			<div className="home-background position-relative h-100 w-100">
+				<div className="home-gradient h-100 w-100 position-absolute"></div>
+				<img className="h-100 w-100" src={require("../../assets/images/sc5r7v.png")} alt="" />
+				<div className="position-absolute top-0 w-100">
 					<div className="container mb-5">
 						<div className="row text-center text-white mb-4 pt-4 ">
 							<h1>GamingDB</h1>

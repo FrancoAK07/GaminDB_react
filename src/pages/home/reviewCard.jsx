@@ -56,7 +56,7 @@ function ReviewCard() {
 		<div className="review-card container">
 			{reviews.map((review, index) => {
 				return (
-					<div className="p-1 mb-2 position-relative rounded border border-secondary" key={review.Review_ID}>
+					<div className="p-1 mb-2 rounded border border-secondary" key={review.Review_ID}>
 						<div className="row w-100 m-auto">
 							<h2 className="text-white">{review.Game_Title}</h2>
 						</div>
