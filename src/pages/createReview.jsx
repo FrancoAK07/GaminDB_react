@@ -74,7 +74,7 @@ function CreateReview({ gameImg1, background1, gameID }) {
 							placeholder="Your Review Here..."
 							ref={reviewTextRef}></textarea>
 						<button
-							className="btn btn-primary d-block mx-auto mt-1"
+							className="btn btn-primary d-block mx-auto mt-2"
 							type="button"
 							onClick={() => {
 								createReview();
