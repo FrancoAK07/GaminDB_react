@@ -82,7 +82,7 @@ function CreateReview({ gameImg1, background1, gameID }) {
 							create review
 						</button>
 					</div>
-					<div className="col-12 justify-content-between d-flex mt-3 column-gap-2">
+					<div className="col-12 justify-content-between d-flex mt-3">
 						<StarRating getRating={getRating} />
 						<Dropdown getPlatform={getPlatform} />
 					</div>
