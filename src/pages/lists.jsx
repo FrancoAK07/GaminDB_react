@@ -101,11 +101,11 @@ function Lists() {
 			<div className="lists row text-center text-white mt-2 w-100 m-auto">
 				{lists.map((list) => {
 					return (
-						<div className="list-col col-4 mt-3 position-relative" key={list.List_Id}>
+						<div className="list-col col-12 col-md-6 col-lg-4 mt-3 position-relative" key={list.List_Id}>
 							<h5 className="row m-auto ms-2 mb-1">{list.List_Name}</h5>
 							<div className="row m-auto">
 								{filterLists(list.List_Id)}
-								<div className={`list-game col-5 rounded position-relative `}>
+								<div className="list-game col-5 rounded position-relative">
 									<Link to="/list" onClick={() => sessionStorage.setItem("listId", list.List_Id)}>
 										<div className="w-100 h-100 rounded position-absolute list-img1 list-img border border-secondary">
 											{lastThreeListInfo.length && lastThreeListInfo[0] ? (

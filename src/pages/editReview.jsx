@@ -65,13 +65,13 @@ function EditReview({ reviewID, gameID }) {
 				<div className="row justify-content-center mt-2 ">
 					<div className="col-12 justify-content-center w-75">
 						<textarea
-							className="d-block w-100 bg-transparent text-white"
+							className="d-block w-100 bg-transparent text-white p-2"
 							cols="40"
 							rows="7"
 							ref={reviewRef}
 							placeholder="Your Review Here..."></textarea>
 						<button
-							className="btn btn-primary d-block mx-auto mt-1"
+							className="btn btn-primary d-block mx-auto mt-2"
 							type="button"
 							onClick={() => {
 								updateReview();
@@ -79,7 +79,7 @@ function EditReview({ reviewID, gameID }) {
 							Update review
 						</button>
 					</div>
-					<div className="col-12 justify-content-between d-flex mt-3 column-gap-2">
+					<div className="col-12 justify-content-between d-flex mt-3">
 						<StarRating getRating={getRating} dbRating={dbRating} />
 						<Dropdown getPlatform={getPlatform} platform={platform} />
 					</div>

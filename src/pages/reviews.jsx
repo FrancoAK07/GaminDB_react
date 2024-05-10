@@ -81,7 +81,7 @@ function Reviews({ getGameID, getID }) {
 			{reviews.map((review, index) => {
 				return (
 					<div className="review p-2 mb-2 position-relative rounded" key={review.Review_ID}>
-						<div className="review-icons row w-auto m-auto  position-absolute top-0 end-0">
+						<div className="review-icons row w-auto m-auto position-absolute top-0 end-0">
 							<div className="col px-1 py-2">
 								<Link to="/editreview">
 									<img

@@ -66,10 +66,6 @@ body {
   width: 20px;
 }
 
-.dropdown {
-  height: 30px;
-}
-
 .select {
   cursor: pointer;
 }
@@ -117,9 +113,9 @@ body {
 }
 
 .review-icons {
-  transition: ease-in-out 250ms;
-  visibility: visible;
-  opacity: 1;
+  transition: ease-in-out 200ms;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .review:hover {

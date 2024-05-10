@@ -20,7 +20,7 @@ function Home() {
 				<div className="position-absolute top-0 w-100 h-100">
 					<div className="container mb-5">
 						<div className="row text-center text-white mb-4 pt-4 ">
-							<h1>Gaming Diary</h1>
+							<h1>GamingDB</h1>
 						</div>
 						<div className="row text-start headlines rounded-3 p-3">
 							<h2 className="text-white">
@@ -35,7 +35,7 @@ function Home() {
 								<div className="row">
 									<h1 className="text-light">New Games</h1>
 								</div>
-								<div className="row row-cols-4">
+								<div className="row row-cols-2 row-cols-md-4">
 									{recentGames.length
 										? recentGames.map((game, i) => {
 												return (
@@ -49,13 +49,11 @@ function Home() {
 							</div>
 						</div>
 					</div>
+					<div className="row text-center w-100 m-auto mb-3">
+						<h1 className="text-white">Recent Reviews</h1>
+					</div>
+					<ReviewCard />
 				</div>
-			</div>
-			<div className="container-fluid content mb-3">
-				<div className="row text-center w-100 m-auto mb-3">
-					<h1 className="text-white">Recent Reviews</h1>
-				</div>
-				<ReviewCard />
 			</div>
 		</div>
 	);
