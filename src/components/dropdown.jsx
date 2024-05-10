@@ -7,7 +7,7 @@ function Dropdown({ getPlatform, platform }) {
 	};
 
 	return (
-		<div className="dropdown row bg-secondary rounded p-2 my-auto">
+		<div className="dropdown row bg-secondary rounded p-2 my-auto m-0">
 			<label className="col-12 col-md text-white text-nowrap text-center p-0 px-1" htmlFor="platforms">
 				Choose Platform :
 			</label>
