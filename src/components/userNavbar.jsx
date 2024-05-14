@@ -23,7 +23,7 @@ function UserNavbar({ user, setUserLogged }) {
 	});
 
 	return (
-		<div className="navbar navbar-expand bg-dark position-relative w-100">
+		<div className="navbar navbar-expand bg-dark position-relative border-bottom border-secondary">
 			<div className="me-3 ms-3">
 				<Link to="/" className="text-light text-decoration-none">
 					Home
@@ -67,7 +67,11 @@ function UserNavbar({ user, setUserLogged }) {
 								sessionStorage.removeItem("user");
 								sessionStorage.removeItem("userId");
 								navigate("/");
-								toast("see you soon", { icon: "👏", style: { background: "#212529", color: "white", border: "1px solid gray" }, duration: 2000 });
+								toast("see you soon", {
+									icon: "👏",
+									style: { background: "#212529", color: "white", border: "1px solid gray" },
+									duration: 2000,
+								});
 							}}>
 							sign out
 						</div>

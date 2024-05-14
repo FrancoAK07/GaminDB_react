@@ -23,7 +23,7 @@ function Navbar({ active, setActive, registerActive, setRegisterActive }) {
 	}
 
 	return (
-		<div className="navbar navbar-expand bg-dark position-relative">
+		<div className="navbar navbar-expand bg-dark position-relative border-bottom border-secondary">
 			<div className="me-3 ms-3">
 				<Link to="/" className="text-light text-decoration-none">
 					Home
