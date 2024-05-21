@@ -160,14 +160,14 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 							{userLogged && (
 								<div className="position-absolute bottom-0 start-50 translate-middle-x pb-3">
 									<div
-										className="add-to-list bg-dark rounded p-1 text-white mb-1 w-auto"
+										className="add-to-list bg-dark rounded p-1 text-white mb-1 w-auto text-center"
 										ref={(item) => addToListBtnRef.current.push(item)}
 										onClick={() => addToList(game.Game_ID)}>
 										Add to list
 									</div>
 									<Link className="text-decoration-none" to={checkReview(game.Game_ID)}>
 										<div
-											className="add-to-list bg-dark rounded p-1 text-white w-auto"
+											className="add-to-list bg-dark rounded p-1 text-white w-auto text-center"
 											onClick={() => {
 												checkID(game.Game_Title);
 											}}>
