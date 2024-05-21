@@ -84,6 +84,11 @@ body {
 .hover-name {
 	visibility: hidden;
 	pointer-events: none;
+	position: absolute;
+	top: 25%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 .add-to-list {

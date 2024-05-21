@@ -61,7 +61,7 @@ function CreateReview({ gameImg1, background1, gameID }) {
 				<img className="background-img w-100 h-100" src={require(`../assets/images/${background1}`)} alt="" />
 				<div className="background-upload position-absolute top-0 start-0 "></div>
 				<div className="game-img position-absolute start-50 top-50 translate-middle text-center">
-					<img className="img-fluid h-100 w-100" src={gameImg1} alt="" />
+					<img className="img-fluid h-100 w-100" src={require(`../assets/images/${gameImg1}`)} alt="" />
 				</div>
 			</div>
 			<div className="container">

@@ -9,7 +9,7 @@ function List() {
 	useEffect(() => {
 		axios.get("http://localhost:3001/getThisListGames", { params: { listId: listId } }).then((data) => {
 			console.log(data.data);
-			setListGames(data.data);
+			setListGames(data.data.reverse());
 		});
 	}, [listId]);
 
@@ -20,7 +20,7 @@ function List() {
 				console.log(data);
 				toast.success("game removed", { style: { background: "#212529", color: "white", border: "1px solid gray" } });
 				axios.get("http://localhost:3001/getThisListGames", { params: { listId: listId } }).then((data) => {
-					setListGames(data.data);
+					setListGames(data.data.reverse());
 				});
 			});
 		}
@@ -36,8 +36,14 @@ function List() {
 					return (
 						<div className="gamecol col rounded p-2 position-relative" key={game.Game_ID}>
 							<div className="d-block h-100">
-								<img className="myreview-game rounded w-100 " src={require(`../assets/images/${game.Game_Img}`)} alt={"game title"} />
-								<div className="hover-name position-absolute top-50 start-50 translate-middle text-white fw-bold text-center">{game.Game_Title}</div>
+								<img
+									className="myreview-game rounded w-100 "
+									src={require(`../assets/images/${game.Game_Img}`)}
+									alt={"game title"}
+								/>
+								<div className="hover-name position-absolute top-50 start-50 translate-middle text-white fw-bold text-center">
+									{game.Game_Title}
+								</div>
 							</div>
 							<div className="delete-listGame-icon position-absolute rounded-5">
 								<img

@@ -19,6 +19,7 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 	useEffect(() => {
 		axios.get("http://localhost:3001/getgames").then((data) => {
 			setGames(data.data);
+			console.log(data.data);
 		});
 	}, []);
 
@@ -56,18 +57,18 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 		}
 	}
 
-	function checkID(e) {
+	function checkID(title) {
 		for (let review of reviews) {
-			if (review.Game_Title === e.target.alt) {
+			if (review.Game_Title === title) {
 				getID(review.Review_ID);
 				return;
 			}
 		}
 		for (let game of games) {
-			if (game.Game_Title === e.target.alt) {
+			if (game.Game_Title === title) {
 				getBackground(game.Game_Background);
 				getGameID(game.Game_ID);
-				getGameImg(e.target.src);
+				getGameImg(game.Game_Img);
 				return;
 			}
 		}
@@ -75,7 +76,10 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 
 	function checkIfLoggedIn() {
 		if (!userLogged) {
-			toast("Sign in to create a review", { style: { background: "#212529", color: "white", border: "1px solid gray" }, duration: 2000 });
+			toast("Sign in to create a review", {
+				style: { background: "#212529", color: "white", border: "1px solid gray" },
+				duration: 2000,
+			});
 		}
 	}
 
@@ -144,23 +148,32 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 				{games.map((game, index) => {
 					return (
 						<div className="gamecol col rounded p-2 position-relative" key={game.Game_ID} onClick={checkIfLoggedIn}>
-							<Link className="d-block h-100" to={checkReview(game.Game_ID)}>
-								<img
-									className="myreview-game rounded w-100 "
-									src={require(`../assets/images/${game.Game_Img}`)}
-									alt={game.Game_Title}
-									onClick={(e) => {
-										checkID(e);
-									}}
-								/>
-								<div className="hover-name position-absolute top-50 start-50 translate-middle text-white fw-bold text-center">{game.Game_Title}</div>
-							</Link>
+							<img
+								className="myreview-game rounded w-100"
+								src={require(`../assets/images/${game.Game_Img}`)}
+								alt={game.Game_Title}
+								onClick={(e) => {
+									checkID(e);
+								}}
+							/>
+							<div className="hover-name text-center text-white fw-bold">{game.Game_Title}</div>
 							{userLogged && (
-								<div
-									className="add-to-list position-absolute bottom-0 start-50 translate-middle bg-dark rounded p-1 text-white"
-									ref={(item) => addToListBtnRef.current.push(item)}
-									onClick={() => addToList(game.Game_ID)}>
-									Add to list
+								<div className="position-absolute bottom-0 start-50 translate-middle-x pb-3">
+									<div
+										className="add-to-list bg-dark rounded p-1 text-white mb-1 w-auto"
+										ref={(item) => addToListBtnRef.current.push(item)}
+										onClick={() => addToList(game.Game_ID)}>
+										Add to list
+									</div>
+									<Link className="text-decoration-none" to={checkReview(game.Game_ID)}>
+										<div
+											className="add-to-list bg-dark rounded p-1 text-white w-auto"
+											onClick={() => {
+												checkID(game.Game_Title);
+											}}>
+											Create/Edit Review
+										</div>
+									</Link>
 								</div>
 							)}
 						</div>
@@ -168,7 +181,9 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 				})}
 			</div>
 			{showListsForm ? (
-				<div className="listsForm row position-absolute bg-secondary top-50 start-50 translate-middle p-2 m-auto rounded" ref={addToListFormRef}>
+				<div
+					className="listsForm row position-absolute bg-secondary top-50 start-50 translate-middle p-2 m-auto rounded"
+					ref={addToListFormRef}>
 					<div className="col-12 p-1">
 						{userLists.map((list, i) => {
 							return (

@@ -36,10 +36,12 @@ function App() {
 
 	function getGameImg(image) {
 		setGameImg1(image);
+		console.log(image);
 	}
 
 	function getBackground(background) {
 		setBackground(background);
+		console.log(background);
 	}
 
 	function getGameID(ID) {
@@ -61,7 +63,13 @@ function App() {
 				{userLoggedIn ? (
 					<UserNavbar user={user} setUserLogged={setUserLoggedIn} className="w-100" />
 				) : (
-					<Navbar className="w-100" active={active} setActive={setActive} registerActive={registerActive} setRegisterActive={setRegisterActive} />
+					<Navbar
+						className="w-100"
+						active={active}
+						setActive={setActive}
+						registerActive={registerActive}
+						setRegisterActive={setRegisterActive}
+					/>
 				)}
 				<LoginForm
 					userName={userName}
@@ -89,7 +97,10 @@ function App() {
 					<Route path="/reviews" element={<Reviews getID={getID} getGameID={getGameID} />} />
 					<Route path="/lists" element={<Lists />} />
 					<Route path="/list" element={<List />} />
-					<Route path="/games" element={<Games getID={getID} getGameImg={getGameImg} getBackground={getBackground} getGameID={getGameID} />} />
+					<Route
+						path="/games"
+						element={<Games getID={getID} getGameImg={getGameImg} getBackground={getBackground} getGameID={getGameID} />}
+					/>
 					<Route path="/editreview" element={<EditReview reviewID={reviewID} gameID={gameID} />} />
 				</Routes>
 			</Router>
