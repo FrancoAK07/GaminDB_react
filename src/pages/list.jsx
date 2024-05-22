@@ -28,7 +28,7 @@ function List() {
 	return (
 		<div className="container mb-3">
 			<div className="row text-center">
-				<h1 className="text-white">{listGames[0]?.List_Name}</h1>
+				<h1 className="text-white mt-2">{listGames[0]?.List_Name}</h1>
 			</div>
 
 			<div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 w-75 m-auto row-gap-1">

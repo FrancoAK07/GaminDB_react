@@ -77,7 +77,7 @@ function Reviews({ getGameID, getID }) {
 
 	return (
 		<div className="review-card container mb-4 ">
-			<h1 className="mb-3 text-white text-center">My Reviews</h1>
+			<h1 className="mb-3 text-white text-center mt-2">My Reviews</h1>
 			{reviews.map((review, index) => {
 				return (
 					<div className="review p-2 mb-2 position-relative rounded" key={review.Review_ID}>

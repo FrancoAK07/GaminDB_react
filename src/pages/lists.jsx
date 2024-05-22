@@ -44,13 +44,15 @@ function Lists() {
 
 	const createList = () => {
 		if (listNameRef.current.value) {
-			axios.post("http://localhost:3001/createList", { listName: listNameRef.current.value, userId: userIdRef.current }).then((res) => {
-				console.log("status", res.status);
-				axios.get("http://localhost:3001/getLists", { params: { userId: userIdRef.current } }).then((data) => {
-					console.log(data.data);
-					setLists(data.data);
+			axios
+				.post("http://localhost:3001/createList", { listName: listNameRef.current.value, userId: userIdRef.current })
+				.then((res) => {
+					console.log("status", res.status);
+					axios.get("http://localhost:3001/getLists", { params: { userId: userIdRef.current } }).then((data) => {
+						console.log(data.data);
+						setLists(data.data);
+					});
 				});
-			});
 			formRef.current.classList.add("d-none");
 		} else {
 			alert("please enter your list name");
@@ -92,7 +94,7 @@ function Lists() {
 
 	return (
 		<div className="container min-vh-100 position-relative">
-			<h1 className="text-center text-white">My Lists</h1>
+			<h1 className="text-center text-white mt-2">My Lists</h1>
 			<div className="row justify-content-center mt-3 w-100 m-auto">
 				<button className="btn btn-primary w-auto" onClick={showForm} ref={createListBtnRef}>
 					Create List
@@ -109,17 +111,29 @@ function Lists() {
 									<Link to="/list" onClick={() => sessionStorage.setItem("listId", list.List_Id)}>
 										<div className="w-100 h-100 rounded position-absolute list-img1 list-img border border-secondary">
 											{lastThreeListInfo.length && lastThreeListInfo[0] ? (
-												<img className="h-100 w-100 rounded" src={require(`../assets/images/${lastThreeListInfo[0].Game_Img}`)} alt="" />
+												<img
+													className="h-100 w-100 rounded"
+													src={require(`../assets/images/${lastThreeListInfo[0].Game_Img}`)}
+													alt=""
+												/>
 											) : null}
 										</div>
 										<div className="w-100 h-100 rounded position-absolute list-img2 list-img border border-secondary">
 											{lastThreeListInfo.length && lastThreeListInfo[1] ? (
-												<img className="h-100 w-100 rounded" src={require(`../assets/images/${lastThreeListInfo[1].Game_Img}`)} alt="" />
+												<img
+													className="h-100 w-100 rounded"
+													src={require(`../assets/images/${lastThreeListInfo[1].Game_Img}`)}
+													alt=""
+												/>
 											) : null}
 										</div>
 										<div className="w-100 h-100 rounded position-absolute list-img3 list-img border border-secondary">
 											{lastThreeListInfo.length && lastThreeListInfo[2] ? (
-												<img className="h-100 w-100 rounded" src={require(`../assets/images/${lastThreeListInfo[2].Game_Img}`)} alt="" />
+												<img
+													className="h-100 w-100 rounded"
+													src={require(`../assets/images/${lastThreeListInfo[2].Game_Img}`)}
+													alt=""
+												/>
 											) : null}
 										</div>
 									</Link>
