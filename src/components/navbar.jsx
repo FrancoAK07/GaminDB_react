@@ -83,7 +83,7 @@ function Navbar({ active, setActive, registerActive, setRegisterActive }) {
 			</div>
 			{showHamburgerMenu && (
 				<div
-					className="hamburger-links position-absolute top-100 bg-dark row w-100 m-auto text-center py-2 border-top border-bottom border-light z-1"
+					className="hamburger-links position-absolute top-100 bg-dark row w-100 m-auto text-center py-2 border-top border-bottom border-light"
 					ref={hamburgerLinks}>
 					<div className="col-12 p-1">
 						<Link to="/" className="text-light text-decoration-none w-auto">

@@ -51,8 +51,8 @@ function UserNavbar({ user, setUserLogged }) {
 	}, [showHamburgerMenu]);
 
 	return (
-		<div className="row w-100 m-auto position-relative">
-			<div className="navbar navbar-expand bg-dark position-relative border-bottom border-secondary d-none d-sm-flex">
+		<div className="row w-100 m-auto position-relative border-bottom border-secondary">
+			<div className="navbar navbar-expand bg-dark position-relative d-none d-sm-flex">
 				<div className="me-3 ms-3">
 					<Link to="/" className="text-light text-decoration-none">
 						Home
@@ -95,7 +95,7 @@ function UserNavbar({ user, setUserLogged }) {
 			</div>
 			{showHamburgerMenu && (
 				<div
-					className="hamburger-links position-absolute top-100 bg-dark row w-100 m-auto text-center py-2 border-top border-bottom border-light z-1"
+					className="hamburger-links position-absolute top-100 bg-dark row w-100 m-auto text-center py-2 border-top border-bottom border-light"
 					ref={hamburgerLinks}>
 					<div className="col-12 p-1">
 						<Link to="/" className="text-light text-decoration-none w-auto">

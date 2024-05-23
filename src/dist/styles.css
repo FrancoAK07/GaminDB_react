@@ -25,7 +25,7 @@ body {
 .register-form {
   opacity: 1;
   transition: 500ms ease-in-out !important;
-  z-index: 110;
+  z-index: 120;
 }
 
 .login-form-invisible,
@@ -211,4 +211,8 @@ body {
 
 .hamburgerActive .bar:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
+}
+
+.hamburger-links {
+  z-index: 110;
 }/*# sourceMappingURL=styles.css.map */
