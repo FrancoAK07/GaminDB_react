@@ -50,6 +50,11 @@ function UserNavbar({ user, setUserLogged }) {
 		};
 	}, [showHamburgerMenu]);
 
+	const navbarLinkCliked = () => {
+		hamburgerMenu.current.classList.remove("hamburgerActive");
+		setShowHamburgerMenu(false);
+	};
+
 	return (
 		<div className="row w-100 m-auto position-relative border-bottom border-secondary">
 			<div className="navbar navbar-expand bg-dark position-relative d-none d-sm-flex">
@@ -98,22 +103,22 @@ function UserNavbar({ user, setUserLogged }) {
 					className="hamburger-links position-absolute top-100 bg-dark row w-100 m-auto text-center py-2 border-top border-bottom border-light"
 					ref={hamburgerLinks}>
 					<div className="col-12 p-1">
-						<Link to="/" className="text-light text-decoration-none w-auto">
+						<Link to="/" className="text-light text-decoration-none w-auto" onClick={navbarLinkCliked}>
 							Home
 						</Link>
 					</div>
 					<div className="col-12 p-1">
-						<Link to="/games" className="text-light text-decoration-none w-auto">
+						<Link to="/games" className="text-light text-decoration-none w-auto" onClick={navbarLinkCliked}>
 							Games
 						</Link>
 					</div>
 					<div className="col-12 p-1">
-						<Link to="/reviews" className="text-light text-decoration-none">
+						<Link to="/reviews" className="text-light text-decoration-none" onClick={navbarLinkCliked}>
 							My Reviews
 						</Link>
 					</div>
 					<div className="col-12 p-1">
-						<Link to="/lists" className="text-light text-decoration-none">
+						<Link to="/lists" className="text-light text-decoration-none" onClick={navbarLinkCliked}>
 							Lists
 						</Link>
 					</div>
