@@ -32,7 +32,7 @@ function Reviews({ getGameID, getID }) {
 	useEffect(() => {
 		if (reviewRef.current[0]) {
 			reviewRef.current.forEach((div, i) => {
-				if (div?.scrollHeight && div.scrollHeight > 48) {
+				if (div?.scrollHeight > 56) {
 					setShowReadMoreOrLess((prevState) => {
 						let newArray = [...prevState];
 						newArray[i] = true;

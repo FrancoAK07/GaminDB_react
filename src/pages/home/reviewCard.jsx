@@ -41,7 +41,8 @@ function ReviewCard() {
 	useEffect(() => {
 		if (reviewRef.current[0]) {
 			reviewRef.current.forEach((div, i) => {
-				if (div?.scrollHeight && div.scrollHeight > 48) {
+				console.log(div?.scrollHeight);
+				if (div?.scrollHeight > 56) {
 					setShowReadMoreOrLess((prevState) => {
 						let newArray = [...prevState];
 						newArray[i] = true;

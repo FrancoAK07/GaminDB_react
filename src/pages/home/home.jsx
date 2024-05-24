@@ -14,8 +14,8 @@ function Home() {
 
 	return (
 		<div className="home h-100">
-			<div className="home-background position-relative h-100 w-100">
-				<div className="home-gradient h-100 w-100 position-absolute"></div>
+			<div className="home-background position-relative w-100">
+				<div className="home-gradient w-100 position-absolute"></div>
 				<img className="h-100 w-100" src={require("../../assets/images/sc5r7v.png")} alt="" />
 				<div className="position-absolute top-0 w-100">
 					<div className="container mb-5">
