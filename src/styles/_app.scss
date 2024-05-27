@@ -96,11 +96,6 @@ body {
 }
 
 .add-to-list {
-	visibility: hidden;
-}
-
-.gamecol:hover .add-to-list {
-	visibility: visible;
 	cursor: pointer;
 	border: 1px solid rgb(146, 146, 146);
 }
@@ -115,24 +110,8 @@ body {
 	visibility: visible;
 }
 
-.review-icons {
-	transition: ease-in-out 200ms;
-	visibility: hidden;
-	opacity: 0;
-}
-
-.review:hover {
-	border: 2px solid rgb(146, 146, 146);
-}
-
 .review {
-	border: 2px solid transparent;
-}
-
-.review:hover .review-icons {
-	transition: ease-in-out 250ms;
-	visibility: visible;
-	opacity: 1;
+	border: 2px solid rgb(146, 146, 146);
 }
 
 .edit-icon,
@@ -176,7 +155,6 @@ body {
 }
 
 .delete-list-icon {
-	visibility: hidden;
 	top: 0;
 	left: 72%;
 	cursor: pointer;
@@ -187,14 +165,9 @@ body {
 }
 
 .delete-listGame-icon {
-	visibility: hidden;
 	top: 4%;
 	right: 7%;
 	cursor: pointer;
-}
-
-.gamecol:hover .delete-listGame-icon {
-	visibility: visible;
 }
 
 .bar {
