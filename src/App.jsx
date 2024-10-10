@@ -57,7 +57,7 @@ function App() {
 	}, [userId]);
 
 	return (
-		<div className="App min-vh-100 ">
+		<div className="App min-vh-100">
 			<Router>
 				<Toaster position="top-right" containerStyle={{ top: 50 }} />
 				{userLoggedIn ? (
