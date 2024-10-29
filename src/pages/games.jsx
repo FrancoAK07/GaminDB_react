@@ -15,22 +15,30 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 	const gameid = useRef();
 	const addToListBtnRef = useRef([]);
 	const [listGames, setListGames] = useState();
+	const [options, setOptions] = useState([]);
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/getgames").then((data) => {
+		axios.get("https://gamingdbreactserver-production.up.railway.app/getgames").then((data) => {
 			setGames(data.data);
 			console.log(data.data);
+			setOptions(
+				data.data.map(() => {
+					return false;
+				})
+			);
 		});
 	}, []);
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/getmyreviews", { params: { userId: userId } }).then((userReviews) => {
-			setReviews(userReviews.data);
-		});
+		axios
+			.get("https://gamingdbreactserver-production.up.railway.app/getmyreviews", { params: { userId: userId } })
+			.then((userReviews) => {
+				setReviews(userReviews.data);
+			});
 	}, [userId]);
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/getLists", { params: { userId: userId } }).then((lists) => {
+		axios.get("https://gamingdbreactserver-production.up.railway.app/getLists", { params: { userId: userId } }).then((lists) => {
 			console.log(lists.data);
 			console.log(userId);
 			setUserLists(lists.data);
@@ -38,7 +46,7 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 	}, [userId]);
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/getListGames").then((data) => {
+		axios.get("https://gamingdbreactserver-production.up.railway.app/getListGames").then((data) => {
 			console.log(data.data);
 			setListGames(data.data);
 		});
@@ -47,7 +55,7 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 	function checkReview(gameID) {
 		if (userLogged) {
 			for (let review of reviews) {
-				if (gameID === review.Game_ID[0]) {
+				if (gameID === review.Game_ID) {
 					return "/editreview";
 				}
 			}
@@ -108,9 +116,11 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 
 			if (!alreadyInList) {
 				console.log("add to database");
-				axios.post("http://localhost:3001/addTolist", { listId: id, gameId: gameid.current }).then((result) => {
-					console.log(result);
-				});
+				axios
+					.post("https://gamingdbreactserver-production.up.railway.app/addTolist", { listId: id, gameId: gameid.current })
+					.then((result) => {
+						console.log(result);
+					});
 				toast.success("Added successfully", {
 					style: {
 						background: "#212529",
@@ -124,6 +134,18 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 		}
 		setShowListsForm(false);
 	}
+
+	const showOptions = (index) => {
+		if (userLogged) {
+			options[index] = !options[index];
+			setOptions([...options]);
+		} else {
+			toast("Sign in to create a review", {
+				style: { background: "#212529", color: "white", border: "1px solid gray" },
+				duration: 2000,
+			});
+		}
+	};
 
 	useEffect(() => {
 		const handleClickOutside = (e) => {
@@ -158,6 +180,18 @@ function Games({ getID, getGameImg, getBackground, getGameID }) {
 							/>
 							<div className="hover-name text-center text-white fw-bold">{game.Game_Title}</div>
 							{userLogged && (
+								<div className="options position-absolute text-end">
+									<img
+										className="h-50 w-50 btn p-0"
+										src={require(`../assets/images/options.png`)}
+										alt=""
+										onClick={() => {
+											showOptions(index);
+										}}
+									/>
+								</div>
+							)}
+							{options[index] && (
 								<div className="position-absolute bottom-0 start-50 translate-middle-x pb-3">
 									<div
 										className="add-to-list bg-dark rounded p-1 text-white mb-1 w-auto text-center"

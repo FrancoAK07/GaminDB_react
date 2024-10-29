@@ -32,7 +32,7 @@ function CreateReview({ gameImg1, background1, gameID }) {
 			});
 		} else {
 			axios
-				.post("http://localhost:3001/savereview", {
+				.post("https://gamingdbreactserver-production.up.railway.app/savereview", {
 					review: reviewTextRef.current.value,
 					rating: parseInt(rating),
 					platform: platform,
@@ -58,10 +58,14 @@ function CreateReview({ gameImg1, background1, gameID }) {
 		<div className="create-review vh-100 bg-dark container-fluid p-0">
 			<div className="background position-relative">
 				<div className="gradient position-absolute"></div>
-				<img className="background-img w-100 h-100" src={require(`../assets/images/${background1}`)} alt="" />
+				<img
+					className="background-img w-100 h-100"
+					src={background1 ? require(`../assets/images/${background1}`) : null}
+					alt=""
+				/>
 				<div className="background-upload position-absolute top-0 start-0 "></div>
 				<div className="game-img position-absolute start-50 top-50 translate-middle text-center">
-					<img className="img-fluid h-100 w-100" src={require(`../assets/images/${gameImg1}`)} alt="" />
+					<img className="img-fluid h-100 w-100" src={gameImg1 ? require(`../assets/images/${gameImg1}`) : null} alt="" />
 				</div>
 			</div>
 			<div className="container">

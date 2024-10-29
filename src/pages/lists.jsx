@@ -17,17 +17,21 @@ function Lists() {
 	};
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/getLists", { params: { userId: userIdRef.current } }).then((data) => {
-			console.log("lists", data.data);
-			setLists(data.data);
-		});
+		axios
+			.get("https://gamingdbreactserver-production.up.railway.app/getLists", { params: { userId: userIdRef.current } })
+			.then((data) => {
+				console.log("lists", data.data);
+				setLists(data.data);
+			});
 	}, []);
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/getListImg", { params: { userId: userIdRef.current } }).then((result) => {
-			console.log("listInfo", result.data);
-			setListInfo(result.data);
-		});
+		axios
+			.get("https://gamingdbreactserver-production.up.railway.app/getListImg", { params: { userId: userIdRef.current } })
+			.then((result) => {
+				console.log("listInfo", result.data);
+				setListInfo(result.data);
+			});
 	}, []);
 
 	useEffect(() => {
@@ -45,13 +49,18 @@ function Lists() {
 	const createList = () => {
 		if (listNameRef.current.value) {
 			axios
-				.post("http://localhost:3001/createList", { listName: listNameRef.current.value, userId: userIdRef.current })
+				.post("https://gamingdbreactserver-production.up.railway.app/createList", {
+					listName: listNameRef.current.value,
+					userId: userIdRef.current,
+				})
 				.then((res) => {
 					console.log("status", res.status);
-					axios.get("http://localhost:3001/getLists", { params: { userId: userIdRef.current } }).then((data) => {
-						console.log(data.data);
-						setLists(data.data);
-					});
+					axios
+						.get("https://gamingdbreactserver-production.up.railway.app/getLists", { params: { userId: userIdRef.current } })
+						.then((data) => {
+							console.log(data.data);
+							setLists(data.data);
+						});
 				});
 			formRef.current.classList.add("d-none");
 		} else {
@@ -82,13 +91,17 @@ function Lists() {
 	function deleteList(listId) {
 		console.log(listId);
 		if (window.confirm("delete list?")) {
-			axios.delete("http://localhost:3001/deleteList", { params: { listId: listId } }).then((data) => {
-				console.log(data);
-				toast.success("list deleted", { style: { background: "#212529", color: "white", border: "1px solid gray" } });
-				axios.get("http://localhost:3001/getLists", { params: { userId: userIdRef.current } }).then((data) => {
-					setLists(data.data);
+			axios
+				.delete("https://gamingdbreactserver-production.up.railway.app/deleteList", { params: { listId: listId } })
+				.then((data) => {
+					console.log(data);
+					toast.success("list deleted", { style: { background: "#212529", color: "white", border: "1px solid gray" } });
+					axios
+						.get("https://gamingdbreactserver-production.up.railway.app/getLists", { params: { userId: userIdRef.current } })
+						.then((data) => {
+							setLists(data.data);
+						});
 				});
-			});
 		}
 	}
 

@@ -37,14 +37,16 @@ function RegisterForm({ registerActive, setRegisterActive, onClickOutside, setAc
 			toast.error("please enter a valid email", { style: { background: "#212529", color: "white", border: "1px solid gray" } });
 		} else {
 			axios
-				.post("http://localhost:3001/insert", {
+				.post("https://gamingdbreactserver-production.up.railway.app/insert", {
 					userName: userName,
 					userEmail: userEmail,
 					userPassword: userPassword,
 				})
 				.then(
 					setRegisterActive(false),
-					toast.success("registered successfully!", { style: { background: "#212529", color: "white", border: "1px solid gray" } })
+					toast.success("registered successfully!", {
+						style: { background: "#212529", color: "white", border: "1px solid gray" },
+					})
 				);
 		}
 	};

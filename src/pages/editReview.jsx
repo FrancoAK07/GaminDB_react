@@ -22,13 +22,15 @@ function EditReview({ reviewID, gameID }) {
 	}
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/getreviewinfo", { params: { reviewID: reviewID } }).then((data) => {
-			setDbRating(data.data[0].Game_Rating);
-			setPlatform(data.data[0].Platform);
-			reviewRef.current.value = data.data[0].Game_Review;
-			setFile(data.data[0].Game_Background);
-			setGameFile(data.data[0].Game_Img);
-		});
+		axios
+			.get("https://gamingdbreactserver-production.up.railway.app/getreviewinfo", { params: { reviewID: reviewID } })
+			.then((data) => {
+				setDbRating(data.data[0].Game_Rating);
+				setPlatform(data.data[0].Platform);
+				reviewRef.current.value = data.data[0].Game_Review;
+				setFile(data.data[0].Game_Background);
+				setGameFile(data.data[0].Game_Img);
+			});
 	}, [reviewID]);
 
 	function updateReview() {
@@ -36,7 +38,7 @@ function EditReview({ reviewID, gameID }) {
 			alert("please complete the review");
 		} else {
 			axios
-				.put("http://localhost:3001/updatereview", {
+				.put("https://gamingdbreactserver-production.up.railway.app/updatereview", {
 					review: reviewRef.current.value,
 					rating: parseInt(dbRating),
 					platform: platform,

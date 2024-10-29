@@ -7,22 +7,30 @@ function List() {
 	const [listGames, setListGames] = useState([]);
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/getThisListGames", { params: { listId: listId } }).then((data) => {
-			console.log(data.data);
-			setListGames(data.data.reverse());
-		});
+		axios
+			.get("https://gamingdbreactserver-production.up.railway.app/getThisListGames", { params: { listId: listId } })
+			.then((data) => {
+				console.log(data.data);
+				setListGames(data.data);
+			});
 	}, [listId]);
 
 	function deleteListGame(listId, gameId) {
 		console.log(gameId);
 		if (window.confirm(`remove game from list ${listGames[0].List_Name}`)) {
-			axios.delete("http://localhost:3001/deleteListGame", { params: { listId: listId, gameId: gameId } }).then((data) => {
-				console.log(data);
-				toast.success("game removed", { style: { background: "#212529", color: "white", border: "1px solid gray" } });
-				axios.get("http://localhost:3001/getThisListGames", { params: { listId: listId } }).then((data) => {
-					setListGames(data.data.reverse());
+			axios
+				.delete("https://gamingdbreactserver-production.up.railway.app/deleteListGame", {
+					params: { listId: listId, gameId: gameId },
+				})
+				.then((data) => {
+					console.log(data);
+					toast.success("game removed", { style: { background: "#212529", color: "white", border: "1px solid gray" } });
+					axios
+						.get("https://gamingdbreactserver-production.up.railway.app/getThisListGames", { params: { listId: listId } })
+						.then((data) => {
+							setListGames(data.data);
+						});
 				});
-			});
 		}
 	}
 	return (

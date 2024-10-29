@@ -7,8 +7,9 @@ function Home() {
 	const [recentGames, setRecentGames] = useState([]);
 
 	useEffect(() => {
-		axios.get("http://localhost:3001/getrecentgames").then((data) => {
+		axios.get("https://gamingdbreactserver-production.up.railway.app/getrecentgames").then((data) => {
 			setRecentGames(data.data);
+			console.log(data.data);
 		});
 	}, []);
 

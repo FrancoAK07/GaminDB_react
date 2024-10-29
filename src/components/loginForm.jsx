@@ -26,7 +26,7 @@ function LoginForm({ active, setActive, onClickOutside, setUserLogged, setRegist
 	}, [onClickOutside, active]);
 
 	const logIn = async () => {
-		const data = await axios.get("http://localhost:3001/get");
+		const data = await axios.get("https://gamingdbreactserver-production.up.railway.app/get");
 		for (let i = 0; i < data.data.length; i++) {
 			if (emailRef.current.value === data.data[i].Email && passwordRef.current.value === data.data[i].Password) {
 				sessionStorage.setItem("userId", data.data[i].User_Id);
@@ -65,7 +65,13 @@ function LoginForm({ active, setActive, onClickOutside, setUserLogged, setRegist
 					<label className="text-white ps-1" htmlFor="login-password-input">
 						Password
 					</label>
-					<input className="form-control" type="password" id="login-password-input" placeholder="Enter Password" ref={passwordRef} />
+					<input
+						className="form-control"
+						type="password"
+						id="login-password-input"
+						placeholder="Enter Password"
+						ref={passwordRef}
+					/>
 				</div>
 				<div className="row w-100 m-auto justify-content-center">
 					<button type="button" className="btn btn-secondary w-50 bg-primary" onClick={logIn}>
